@@ -2,7 +2,9 @@
   "compilerOptions": {
     "incremental": true,
     "outDir": "./lib",
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "target": "es5",
+    "lib": ["esnext", "dom"]
   },
   "include": ["./src"],
   "files": ["./src/engine/types.d.ts"]
