@@ -1,16 +1,20 @@
-import { IInputDispatcher } from './IInputDispatcher'
 import { World } from '../world'
 import { IEntity } from '../entity'
-import { ListenerAction, Listener } from './'
 
+export type ListenerAction = ({ event }: { event: KeyboardEvent }) => void
+export type Listener = {
+  entity: IEntity
+  key: Key
+  action: ListenerAction
+}
 type DispatcherListener = Listener & {
   id: number
 }
 
-class InputDispatcher implements IInputDispatcher {
+class InputDispatcher {
   private world: World
   private listeners: DispatcherListener[]
-  private static instance: IInputDispatcher | undefined
+  private static instance: InputDispatcher | undefined
   static listenerId = 0
 
   static getInstance() {

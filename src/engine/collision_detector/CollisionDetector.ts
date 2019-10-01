@@ -1,7 +1,6 @@
-import { ICollisionDetector } from './ICollisionDetector'
 import { IEntity } from '../entity'
 
-class CollisionDetector implements ICollisionDetector {
+class CollisionDetector {
   private entities: IEntity[]
 
   constructor() {

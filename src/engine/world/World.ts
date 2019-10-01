@@ -1,10 +1,6 @@
 import { Renderer, IRenderer } from '../renderer'
-import {
-  InputDispatcher,
-  IInputDispatcher,
-  Listener
-} from '../input_dispatcher'
-import { ICollisionDetector, CollisionDetector } from '../collision_detector'
+import { InputDispatcher, Listener } from '../input_dispatcher'
+import { CollisionDetector } from '../collision_detector'
 import { IEntity, IEntityFactory, EntityFactory } from '../entity'
 
 export type WorldStatus = 'playing' | 'stop' | 'pause'
@@ -12,8 +8,8 @@ export type WorldStatus = 'playing' | 'stop' | 'pause'
 class World {
   private entities: IEntity[]
   private renderer: IRenderer
-  private inputDispatcher: IInputDispatcher
-  private collisionDetector: ICollisionDetector
+  private inputDispatcher: InputDispatcher
+  private collisionDetector: CollisionDetector
   private inputSource: HTMLElement
   private status: WorldStatus
   private canvas: HTMLCanvasElement
