@@ -1,12 +1,22 @@
 import { ICollisionDetector } from './ICollisionDetector'
-import { IWorld } from '../world'
+import { IEntity } from '../entity'
 
 class CollisionDetector implements ICollisionDetector {
-  world: IWorld
+  private entities: IEntity[]
 
-  constructor(world: IWorld) {
-    this.world = world
+  constructor() {
+    this.entities = []
   }
+
+  addEntity(e: IEntity) {
+    this.entities.push(e)
+  }
+
+  removeEntity(e: IEntity) {
+    this.entities = this.entities.filter((e) => e !== e)
+  }
+
+  detectCollision() {}
 }
 
 export { CollisionDetector }

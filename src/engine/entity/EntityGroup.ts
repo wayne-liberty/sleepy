@@ -1,30 +1,19 @@
 import { IEntityGroup, IEntity } from './'
 import { IWorld } from '../world'
+import { Entity } from './Entity'
 
-class EntityGroup implements IEntityGroup {
+class EntityGroup extends Entity implements IEntityGroup {
   private entities: IEntity[]
   private originalPosition: EntityPosition
-  private position: EntityPosition
-  private world: IWorld
 
   constructor(world: IWorld, position: EntityPosition) {
+    super(world, {
+      position,
+      image: [],
+      layer: {} as any
+    })
     this.entities = []
-    this.world = world
-    this.position = position
     this.originalPosition = { ...position }
-  }
-
-  getPosition() {
-    return this.position
-  }
-
-  setPosition(position: EntityPosition) {
-    this.position = position
-    return this
-  }
-
-  getWorld() {
-    return this.world
   }
 
   addEntity(entity: IEntity) {

@@ -4,7 +4,8 @@
     "outDir": "./lib",
     "noImplicitAny": true,
     "target": "es5",
-    "lib": ["esnext", "dom"]
+    "lib": ["esnext", "dom"],
+    "sourceMap": true
   },
   "include": ["./src"],
   "files": ["./src/engine/types.d.ts"]

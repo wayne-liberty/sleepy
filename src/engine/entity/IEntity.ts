@@ -12,6 +12,7 @@ export type RenderObject = {
   position: EntityPosition
   layer: Layer
   image: RenderShape[]
+  collision?: Collision
 }
 
 export interface IEntity {
@@ -21,4 +22,5 @@ export interface IEntity {
   getWorld: () => IWorld
   addEventListener: (arg: EventListenerOption) => number
   removeEventListener: (id: number) => void
+  getCollision: () => Collision
 }

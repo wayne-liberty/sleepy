@@ -4,16 +4,21 @@ export function start(canvas: HTMLCanvasElement) {
   const world = new World(canvas, canvas)
   const entityFactory = new EntityFactory(world)
   const e = entityFactory.createEntity({
-    position: { x: 20, y: 10 },
+    position: { x: 100, y: 10 },
+    collision: {
+      shape: {
+        width: 20,
+        height: 40
+      },
+      handler: () => {}
+    },
     layer: {
       type: 'foreground',
       index: 1
     },
     image: [
-      new Pixel({ x: 20, y: 20, attributes: { color: 'red' } }),
-      new Rectangle({ x: 0, y: 0, width: 20, height: 10 }),
       new Rectangle({
-        x: 100,
+        x: 0,
         y: 0,
         width: 20,
         height: 40,
@@ -21,12 +26,30 @@ export function start(canvas: HTMLCanvasElement) {
       })
     ]
   })
-  e.addEventListener({
+
+  const e2 = entityFactory.createEntity({
+    position: { x: 10, y: 10 },
+    layer: {
+      type: 'foreground',
+      index: 1
+    },
+    collision: {
+      shape: {
+        width: 20,
+        height: 10
+      },
+      handler: (e: any) => {
+        console.error('collide with ', e)
+      }
+    },
+    image: [new Rectangle({ x: 0, y: 0, width: 20, height: 10 })]
+  })
+
+  e2.addEventListener({
     key: 'space',
     action: ({ event }) => {
-      console.log(event)
-      const position = e.getPosition()
-      e.setPosition({ x: position.x + 10, y: position.y })
+      const position = e2.getPosition()
+      e2.setPosition({ x: position.x + 10, y: position.y })
     }
   })
   world.start()

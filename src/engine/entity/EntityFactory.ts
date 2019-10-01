@@ -15,6 +15,7 @@ class EntityFactory implements IEntityFactory {
   }
 
   createEntityGroup(position: EntityPosition) {
+    // TODO: support to take eneties as second argument
     const e = new EntityGroup(this.world, position)
     this.world.addEntity(e)
     return e

@@ -3,8 +3,8 @@ import { Attributes } from '../IEntity'
 import { setupCtx } from './utils'
 
 export type Props = {
-  x: number
-  y: number
+  x?: number
+  y?: number
   attributes?: Attributes
   width: number
   height: number
@@ -17,7 +17,7 @@ export class Rectangle implements RenderShape {
   height: number
 
   constructor(args: Props) {
-    this.position = { x: args.x, y: args.y }
+    this.position = { x: args.x || 0, y: args.y || 0 }
     this.attributes = args.attributes
     this.width = args.width
     this.height = args.height

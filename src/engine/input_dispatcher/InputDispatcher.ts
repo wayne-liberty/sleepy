@@ -30,7 +30,6 @@ class InputDispatcher implements IInputDispatcher {
   }
 
   private hookUpEventListener(container: HTMLElement) {
-    // MTODO: fix this
     window.addEventListener('keypress', this.listener)
   }
 

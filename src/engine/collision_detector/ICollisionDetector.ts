@@ -1,7 +1,7 @@
-import { IWorld } from '../world'
+import { IEntity } from '../entity'
 
-interface ICollisionDetector {
-  world: IWorld
+export interface ICollisionDetector {
+  addEntity: (e: IEntity) => void
+  removeEntity: (e: IEntity) => void
+  detectCollision: () => void
 }
-
-export { ICollisionDetector }

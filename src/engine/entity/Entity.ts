@@ -4,15 +4,20 @@ import { RenderObject } from './IEntity'
 
 class Entity implements IEntity {
   private image: RenderShape[]
-  private position: EntityPosition
+  protected position: EntityPosition
   private layer: Layer
-  private world: IWorld
+  protected world: IWorld
+  private collision: Collision
 
   constructor(world: IWorld, arg: RenderObject) {
     this.world = world
     this.image = arg.image
     this.position = arg.position
     this.layer = arg.layer
+    this.collision = arg.collision
+    if (this.collision) {
+      this.registerCollision(this.collision)
+    }
   }
 
   getPosition() {
@@ -36,6 +41,14 @@ class Entity implements IEntity {
         layer: this.layer
       }
     ] as RenderObject[]
+  }
+
+  getCollision() {
+    return this.collision
+  }
+
+  registerCollision(config: Collision) {
+    //TODO implement
   }
 
   /**

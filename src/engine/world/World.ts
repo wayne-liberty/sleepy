@@ -56,7 +56,7 @@ class World implements IWorld {
     return this.inputDispatcher.addListener(listen)
   }
 
-  removeEventListener(id:number){
+  removeEventListener(id: number) {
     return this.inputDispatcher.removeListener(id)
   }
 

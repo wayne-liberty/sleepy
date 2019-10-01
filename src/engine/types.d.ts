@@ -7,6 +7,16 @@ type EntityPosition = {
   y: number
 }
 
+type Collision = {
+  border: {
+    offsetX: number
+    offsetY: number
+    width: number
+    height: number
+  }
+  handler: Function
+}
+
 type Attributes = {
   color: string
 }

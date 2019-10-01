@@ -18,8 +18,8 @@ export default [
     output: {
       file: pkg.browser,
       name: 'DS',
-      format: 'es',
-      sourcemap: 'inline'
+      format: 'cjs',
+      sourcemap: 'true'
     },
     plugins: [resolve(), typescriptPlugin, serve(), livereload()]
   }
