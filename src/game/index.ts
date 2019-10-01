@@ -6,11 +6,15 @@ export function start(canvas: HTMLCanvasElement) {
   const e = entityFactory.createEntity({
     position: { x: 100, y: 10 },
     collision: {
-      shape: {
+      border: {
         width: 20,
-        height: 40
+        height: 40,
+        offsetX: 0,
+        offsetY: 0
       },
-      handler: () => {}
+      handler: (e: any) => {
+        console.error('collide with ', e)
+      }
     },
     layer: {
       type: 'foreground',
@@ -34,9 +38,11 @@ export function start(canvas: HTMLCanvasElement) {
       index: 1
     },
     collision: {
-      shape: {
+      border: {
         width: 20,
-        height: 10
+        height: 10,
+        offsetX: 0,
+        offsetY: 0
       },
       handler: (e: any) => {
         console.error('collide with ', e)
@@ -48,6 +54,7 @@ export function start(canvas: HTMLCanvasElement) {
   e2.addEventListener({
     key: 'space',
     action: ({ event }) => {
+      console.log('move')
       const position = e2.getPosition()
       e2.setPosition({ x: position.x + 10, y: position.y })
     }

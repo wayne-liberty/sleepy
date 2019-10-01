@@ -1,9 +1,9 @@
 import { EntityFactory } from '../'
-import { IWorld } from '../../world'
+import { World } from '../../world'
 import { RenderObject } from '../IEntity'
 
 //@ts-ignore
-const factory = new EntityFactory({ addEntity: () => {} } as IWorld)
+const factory = new EntityFactory({ addEntity: () => {} } as World)
 function fakeEntity(arg: any) {
   return factory.createEntity(arg as RenderObject)
 }

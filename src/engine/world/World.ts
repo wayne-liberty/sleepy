@@ -1,4 +1,3 @@
-import { IWorld } from './IWorld'
 import { Renderer, IRenderer } from '../renderer'
 import {
   InputDispatcher,
@@ -10,7 +9,7 @@ import { IEntity, IEntityFactory, EntityFactory } from '../entity'
 
 export type WorldStatus = 'playing' | 'stop' | 'pause'
 
-class World implements IWorld {
+class World {
   private entities: IEntity[]
   private renderer: IRenderer
   private inputDispatcher: IInputDispatcher
@@ -27,7 +26,7 @@ class World implements IWorld {
     this.canvas = canvas
     this.renderer = new Renderer(this)
     this.inputDispatcher = InputDispatcher.initialize(this)
-    this.collisionDetector = new CollisionDetector(this)
+    this.collisionDetector = new CollisionDetector()
     this.entityFactory = new EntityFactory(this)
     this.entities = []
   }

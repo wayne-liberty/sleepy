@@ -1,15 +1,16 @@
 import { IEntity, RenderShape } from './'
-import { IWorld } from '../world'
+import { World } from '../world'
 import { RenderObject } from './IEntity'
+import { Listener } from '../input_dispatcher'
 
 class Entity implements IEntity {
   private image: RenderShape[]
   protected position: EntityPosition
   private layer: Layer
-  protected world: IWorld
+  protected world: World
   private collision: Collision
 
-  constructor(world: IWorld, arg: RenderObject) {
+  constructor(world: World, arg: RenderObject) {
     this.world = world
     this.image = arg.image
     this.position = arg.position
@@ -56,7 +57,8 @@ class Entity implements IEntity {
    * @param option specify kind of event to listen to and action
    */
   addEventListener(option: EventListenerOption) {
-    return this.world.addEventListener(option)
+    ;(option as Listener).entity = this
+    return this.world.addEventListener(option as Listener)
   }
 
   removeEventListener(id: number) {

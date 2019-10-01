@@ -1,5 +1,5 @@
 import { IInputDispatcher } from './IInputDispatcher'
-import { IWorld } from '../world'
+import { World } from '../world'
 import { IEntity } from '../entity'
 import { ListenerAction, Listener } from './'
 
@@ -8,7 +8,7 @@ type DispatcherListener = Listener & {
 }
 
 class InputDispatcher implements IInputDispatcher {
-  private world: IWorld
+  private world: World
   private listeners: DispatcherListener[]
   private static instance: IInputDispatcher | undefined
   static listenerId = 0
@@ -17,12 +17,12 @@ class InputDispatcher implements IInputDispatcher {
     return InputDispatcher.instance
   }
 
-  static initialize(world: IWorld) {
+  static initialize(world: World) {
     InputDispatcher.instance = new InputDispatcher(world)
     return InputDispatcher.instance
   }
 
-  private constructor(world: IWorld) {
+  private constructor(world: World) {
     this.world = world
     this.listeners = []
     this.listener = this.listener.bind(this)

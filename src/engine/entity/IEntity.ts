@@ -1,4 +1,4 @@
-import { IWorld } from '../world'
+import { World } from '../world'
 
 export type Attributes = {
   color: string
@@ -19,7 +19,7 @@ export interface IEntity {
   getRenderObjects: () => RenderObject[]
   getPosition: () => EntityPosition
   setPosition: (position: EntityPosition) => IEntity
-  getWorld: () => IWorld
+  getWorld: () => World
   addEventListener: (arg: EventListenerOption) => number
   removeEventListener: (id: number) => void
   getCollision: () => Collision

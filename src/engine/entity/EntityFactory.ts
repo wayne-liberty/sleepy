@@ -1,10 +1,10 @@
-import { IWorld } from '../world'
+import { World } from '../world'
 import { IEntityFactory, Entity, EntityGroup } from '.'
 import { RenderObject } from './IEntity'
 
 class EntityFactory implements IEntityFactory {
-  private world: IWorld
-  constructor(world: IWorld) {
+  private world: World
+  constructor(world: World) {
     this.world = world
   }
 

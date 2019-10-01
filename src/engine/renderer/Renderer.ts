@@ -1,13 +1,13 @@
 import { IRenderer } from './IRenderer'
-import { IWorld, World } from '../world'
+import { World } from '../world'
 import { RenderShape, Rectangle, RenderObject } from '../entity'
 
 class Renderer implements IRenderer {
-  world: IWorld
+  world: World
   private ctx: CanvasRenderingContext2D
   private canvasSize: { width: number; height: number }
 
-  constructor(world: IWorld) {
+  constructor(world: World) {
     this.world = world
     const canvas = world.getCanvas()
     this.ctx = canvas.getContext('2d')

@@ -1,7 +1,7 @@
-import { IWorld } from '../world'
+import { World } from '../world'
 
 interface IRenderer {
-  world: IWorld
+  world: World
 
   render(): void
 }

@@ -1,12 +1,12 @@
 import { IEntityGroup, IEntity } from './'
-import { IWorld } from '../world'
+import { World } from '../world'
 import { Entity } from './Entity'
 
 class EntityGroup extends Entity implements IEntityGroup {
   private entities: IEntity[]
   private originalPosition: EntityPosition
 
-  constructor(world: IWorld, position: EntityPosition) {
+  constructor(world: World, position: EntityPosition) {
     super(world, {
       position,
       image: [],
@@ -40,10 +40,6 @@ class EntityGroup extends Entity implements IEntityGroup {
     })
 
     return res.flat()
-  }
-
-  addEventListener(option: EventListenerOption) {
-    return this.world.addEventListener(option)
   }
 
   removeEventListener(id: number) {
