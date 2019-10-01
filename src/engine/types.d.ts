@@ -14,7 +14,7 @@ type Collision = {
     width: number
     height: number
   }
-  handler: Function
+  handler: (e: any) => void
 }
 
 type Attributes = {

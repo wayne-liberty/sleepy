@@ -50,6 +50,7 @@ class Entity implements IEntity {
 
   registerCollision(config: Collision) {
     //TODO implement
+    this.world.collisionDetector.addEntity(this)
   }
 
   /**
@@ -61,9 +62,18 @@ class Entity implements IEntity {
     return this.world.addEventListener(option as Listener)
   }
 
+  /**
+   * maybe delete this function later
+   * @param id listener id
+   */
   removeEventListener(id: number) {
     return this.world.removeEventListener(id)
   }
+
+  /**
+   * called before entity destroys
+   */
+  destroy() {}
 }
 
 export { Entity }

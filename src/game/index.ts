@@ -13,7 +13,7 @@ export function start(canvas: HTMLCanvasElement) {
         offsetY: 0
       },
       handler: (e: any) => {
-        console.error('collide with ', e)
+        console.log('e collide with ', e)
       }
     },
     layer: {
@@ -45,7 +45,7 @@ export function start(canvas: HTMLCanvasElement) {
         offsetY: 0
       },
       handler: (e: any) => {
-        console.error('collide with ', e)
+        console.log('e2 collide with ')
       }
     },
     image: [new Rectangle({ x: 0, y: 0, width: 20, height: 10 })]

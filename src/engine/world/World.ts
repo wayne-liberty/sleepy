@@ -9,10 +9,10 @@ class World {
   private entities: IEntity[]
   private renderer: IRenderer
   private inputDispatcher: InputDispatcher
-  private collisionDetector: CollisionDetector
   private inputSource: HTMLElement
   private status: WorldStatus
   private canvas: HTMLCanvasElement
+  collisionDetector: CollisionDetector
 
   entityFactory: IEntityFactory
   millionSecondesSinceStart: number
@@ -57,6 +57,7 @@ class World {
 
   start() {
     requestAnimationFrame(() => {
+      this.collisionDetector.detectCollision()
       this.renderer.render()
       this.start()
     })
